@@ -21,7 +21,7 @@ reg [7:0] l89_x1; //STAGE EIGHT REGISTER
 
 reg [7:0] l9_median;  //FINAL ANSWER
 
-assign  median= l13_x3;
+assign  median= l9_median;
 
 
   always @ (A or B or C or D or E or F or G or H or I )
@@ -302,6 +302,7 @@ end
 endmodule
 
 
+
 module tb;
   reg [7:0] A,B,C,D,E,F,G,H,I;
   wire [7:0] median;
@@ -326,8 +327,7 @@ module tb;
       G=8'b01111111;
       H=8'b01101101;
       I=8'b00101010;
-      #1 $display("%b,%b,%b",C,D,median);
+      #1 $display("%d,%d,%d,%d,%d,%d,%d,%d,%d,median is %d",A,B,C,D,E,F,G,H,I,median);
                   
     end        
 endmodule
-
