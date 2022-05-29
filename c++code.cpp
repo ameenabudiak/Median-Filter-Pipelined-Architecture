@@ -31,12 +31,15 @@ int main() {
 
 	
 for(int i=0;i<n*n;i++){
-    if(i/n==0 ||i%n==0 ||i%n==n-1||i/n==n-1  ){ //check if the pixel is on edge or not 
-        
-        newarray[i]=arrayOne[i]; // if yes don't change the value 
+	//check if the pixel is on edge or not 
+    if(i/n==0 ||i%n==0 ||i%n==n-1||i/n==n-1  ){ 
+// if yes don't change the value 
+        newarray[i]=arrayOne[i]; 
     }
-    else{                        // if no apply the median filter
-        int narray[f*f] ={0};    // crat array with filter size for pixel naiperhoods 
+// if no apply the median filter
+    else{ 
+// create an array with filter size for pixel neighbor       
+     int narray[f*f] ={0};    
     narray[0]=arrayOne[i];
     narray[1]=arrayOne[i-1];
     narray[2]=arrayOne[i+1];
@@ -46,13 +49,14 @@ for(int i=0;i<n*n;i++){
     narray[6]=arrayOne[i+n];
     narray[7]=arrayOne[i+n-1];
     narray[8]=arrayOne[i+n+1];
-
- newarray[i]=findMedian(narray, 9) ; // find median of arrY
-
+	    
+// find median of array
+ newarray[i]=findMedian(narray, 9) ; 
 
         
     }
 }
+	
 cout<<endl<<"old array"<<endl;
 for(int a=0;a<n*n;a++){
     if(a%n==0){cout<<endl;}
